@@ -34,7 +34,7 @@
 	function FilterName( $post_name ) {
 		 
         $post_id = isset( $_POST['post_ID'] ) ? intval( $_POST['post_ID'] ) : 0;
-		$new_slug = isset( $_POST['post_name'] ) ? $_POST['post_name'] : 0;
+		$new_slug = isset( $_POST['post_title'] ) ? $_POST['post_title'] : 0;
 		
 		if ( $post_id ) { 
 			$post_name = SlugChange( $new_slug ); 
@@ -46,38 +46,18 @@
 	//კონვერტაცია
 	function GeSlugConvert( $string )
 	{
-		$string = str_replace('ა', 'a', $string);
-		$string = str_replace('ბ', 'b',$string);
-		$string = str_replace('გ', 'g',$string);
-		$string = str_replace('დ', 'd',$string);
-		$string = str_replace('ე', 'e',$string);
-		$string = str_replace('ვ', 'v',$string);
-		$string = str_replace('ზ', 'z',$string);
-		$string = str_replace('თ', 't',$string);
-		$string = str_replace('ი', 'i',$string);
-		$string = str_replace('კ', 'k',$string);
-		$string = str_replace('ლ', 'l',$string);
-		$string = str_replace('მ', 'm',$string);
-		$string = str_replace('ნ', 'n',$string);
-		$string = str_replace('ო', 'o',$string);
-		$string = str_replace('პ', 'p',$string);
-		$string = str_replace('ჟ', 'zh',$string);
-		$string = str_replace('რ', 'r',$string);
-		$string = str_replace('ს', 's',$string);
-		$string = str_replace('ტ', 't',$string);
-		$string = str_replace('უ', 'u',$string);
-		$string = str_replace('ფ', 'f',$string);
-		$string = str_replace('ქ', 'q',$string);
-		$string = str_replace('ღ', 'gh',$string);
-		$string = str_replace('ყ', 'k',$string);
-		$string = str_replace('შ', 'sh',$string);
-		$string = str_replace('ჩ', 'ch',$string);
-		$string = str_replace('ც', 'ts',$string);
-		$string = str_replace('ძ', 'dz',$string);
-		$string = str_replace('წ', 'ts',$string);
-		$string = str_replace('ჭ', 'ch',$string);
-		$string = str_replace('ჯ' ,'j',$string);
-		$string = str_replace('ჰ' ,'h',$string);
+
+		$georgian = [
+			'ა', 'ბ', 'გ', 'დ', 'ე', 'ვ', 'ზ', 'თ', 'ი', 'კ', 'ლ', 'მ', 'ნ', 'ო', 'პ', 'ჟ', 'რ', 'ს', 'ტ', 'უ', 'ფ', 'ქ', 'ღ', 'ყ', 'შ', 
+			'ჩ','ხ', 'ც', 'ძ', 'წ', 'ჭ', 'ჯ' ,'ჰ'
+		];
+
+		$english = [
+			'a', 'b','g','d','e','v','z','t','i','k','l','m','n','o','p','zh','r','s','t','u','f','q','gh','k','sh',
+			'ch','kh','ts','dz','ts','ch','j','h',
+		];
+
+		$string = str_replace($georgian, $english, $string);
 
 		return $string;
 	}
