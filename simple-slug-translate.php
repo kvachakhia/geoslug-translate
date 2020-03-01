@@ -12,7 +12,7 @@
 	//Slug დამატება
 	add_filter('wp_insert_post_data', 'AppendSlug', 3);
 	function AppendSlug($data) {  
-		$data['post_name']= SlugChange($data['post_name']);
+		$data['post_name']= SlugChange( $data['post_name'] );
 		
 		return $data; 
 	}
@@ -31,13 +31,13 @@
 	
 	//slug შენახვა
 	add_filter('name_save_pre', 'FilterName'); 
-	function FilterName($post_name) {
+	function FilterName( $post_name ) {
 		 
-        $post_id = isset($_POST['post_ID']) ? intval($_POST['post_ID']) : 0;
-		$new_slug = isset($_POST['post_name']) ? $_POST['post_name'] : 0;
+        $post_id = isset( $_POST['post_ID'] ) ? intval( $_POST['post_ID'] ) : 0;
+		$new_slug = isset( $_POST['post_name'] ) ? $_POST['post_name'] : 0;
 		
-		if ($post_id) { 
-			$post_name = SlugChange($new_slug); 
+		if ( $post_id ) { 
+			$post_name = SlugChange( $new_slug ); 
 		}
 		
         return $post_name;
