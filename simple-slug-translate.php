@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:     GeoSlug Translation
- * Plugin URI:      
+ * Plugin URI:      https://github.com/kvachakhia/geoslug-translate
  * Description:     ქართული სიტყვების გადათარგმნა ლათინურზე
  * Version:         1.0
  * Author:          Dimitri Kvachakhia
